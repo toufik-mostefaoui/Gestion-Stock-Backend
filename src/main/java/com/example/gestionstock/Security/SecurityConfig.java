@@ -79,6 +79,7 @@ public class SecurityConfig {
                                 "/auth/signup",
                                 "/auth/login",
                                 "/auth/refresh",
+                                "/product/products",
                                 "/auth/logout"
                         ).permitAll()
                         .requestMatchers("/auth/admin/**").hasRole("ADMIN")

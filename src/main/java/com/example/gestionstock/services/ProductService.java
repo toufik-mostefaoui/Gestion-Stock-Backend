@@ -68,7 +68,7 @@ public class ProductService {
 
     public Product createProduct(ProductDTO pro) {
 
-        Category category = findCategoryById(pro.getCategoryId());
+        List<Category> categories = categoryRepository.findAllById(pro.getCategoryIds());
 
         Product product = new Product();
 
@@ -76,7 +76,7 @@ public class ProductService {
         product.setDescription(pro.getDescription());
         product.setPrice(pro.getPrice());
         product.setStock(pro.getStock());
-        product.setCategory(category);
+        product.setCategoryList(categories);
 
         return productRepository.save(product);
     }
@@ -89,7 +89,7 @@ public class ProductService {
         existingProduct.setDescription(product.getDescription());
         existingProduct.setPrice(product.getPrice());
         existingProduct.setStock(product.getStock());
-        existingProduct.setCategory(findCategoryById(product.getCategoryId()));
+        existingProduct.setCategoryList(categoryRepository.findAllById(product.getCategoryIds()));
 
         return productRepository.save(existingProduct);
     }

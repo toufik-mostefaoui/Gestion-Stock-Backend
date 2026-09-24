@@ -4,6 +4,8 @@ package com.example.gestionstock.dto;
 import com.example.gestionstock.entity.Category;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ProductDTO {
 
@@ -11,6 +13,6 @@ public class ProductDTO {
     private String description;
     private Double price;
     private Integer stock;
-    private Long categoryId;
+    private List<Long> categoryIds;
 
 }
